@@ -53,6 +53,7 @@ body{
 }
 #photos {
     overflow-x: scroll;
+    margin: 20px;
 }
 
 #describtion {
