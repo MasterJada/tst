@@ -5,6 +5,8 @@ const title = document.querySelector("#name");
 const photosElement = document.querySelector("#photos");
 const backlight = document.querySelector("#backlight");
 const slider = document.querySelector("#image_slider");
+const nextBtn = document.querySelector("#next");
+const prevBtn = document.querySelector("#prev");
 
 window.onload = ()=>{
     displayPlaces(data);
@@ -47,15 +49,37 @@ function fillPhotos(photos) {
         element.className = "photo_preview";
         photosElement.appendChild(element);
         element.onclick = () =>{
-            showSlider(photo);
+            showSlider(photo, photos);
         }
     });
 }
 
-function showSlider(photo){
+function showSlider(photo, photos){
+    
     slider.style.display = "flex";
     const img = document.querySelector("#big_image");
     img.src = "src/" + photo.src;
+    let index = photos.indexOf(photo);
+    if(index > -1) {
+        console.log(index);
+    }
+    if(index >= photos.length -1){
+      nextBtn.style.display = "none";
+    } else{
+        nextBtn.style.display = "block";
+        nextBtn.onclick = function()  {
+            showSlider(photos[index +1], photos)
+        }
+    }
+    if(photos.length > 1 && index > 0){
+        prevBtn.style.display = "block";
+        prevBtn.onclick = function(){
+            showSlider(photos[index -1], photos)
+        }
+    }else{
+        prevBtn.style.display = "none";
+    }
+
 }
 
 function closeSlider() {

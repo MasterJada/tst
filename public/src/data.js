@@ -72,7 +72,7 @@ let data ={
             },
             {
                 "name": "doll",
-                "src": "doll.jpeg"
+                "src": "picture.jpeg"
             }
        ]
     },
