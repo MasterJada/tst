@@ -16,8 +16,8 @@ function displayPlaces(data){
     data.places.forEach(place => {
         var element = document.createElement("img");
         element.src = "src/" + place.type + ".png";
-        element.style.left = place.pos_x + "px";
-        element.style.top = place.pos_y + "px";
+        element.style.left = place.pos_x  + "px";
+        element.style.top = place.pos_y  + "px";
         element.className = "site";
         element.id = "elem_" + place.id;
         
